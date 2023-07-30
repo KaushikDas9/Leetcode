@@ -1,0 +1,62 @@
+
+// using set and string  O(n*3) and O(1)
+class Solution {
+    public int countGoodSubstrings(String s) 
+    {
+        if(s.length() <3) return 0 ;
+         HashSet<String> map = new  HashSet<>();
+        String str = "";
+         str += String.valueOf(s.charAt(0));
+         str += String.valueOf(s.charAt(1));
+        int count=0;
+        for(int i= 2; i<s.length() ; i++)
+        {
+            str += String.valueOf(s.charAt(i));
+            for(int j=0 ; j<3 ; j++)
+            {
+                map.add(String.valueOf(str.charAt(j)));
+            }
+            if(map.size() == 3) count++;
+            map.clear();
+            str = str.substring(1,str.length());
+        }
+        return count;
+    }
+}
+
+
+
+// only set (little optimise) O(n) ans O(1)
+class Solution {
+    public int countGoodSubstrings(String s) 
+    {
+        HashSet<Character> set = new HashSet<>(); 
+        if(s.length() <3) return 0 ;
+        int count=0;
+        for(int i= 0; i<s.length()-2 ; i++)
+        {
+            set.add(s.charAt(i));set.add(s.charAt(i+1));set.add(s.charAt(i+2));
+            if(set.size() ==3 ) count++;
+            set.clear();
+        }
+        return count;
+    }
+}
+
+
+// using only variable (Super Optimise) O(n) ans O(1)
+class Solution {
+    public int countGoodSubstrings(String s) 
+    {
+        if(s.length() <3) return 0 ;
+        int count=0;
+        for(int i= 0; i<s.length()-2 ; i++)
+        {
+            char c1=s.charAt(i);
+            char c2 = s.charAt(i+1);
+            char c3 = s.charAt(i+2);
+            if(c1 != c2 && c1 != c3 && c2 != c3 ) count++;
+        }
+        return count;
+    }
+}
