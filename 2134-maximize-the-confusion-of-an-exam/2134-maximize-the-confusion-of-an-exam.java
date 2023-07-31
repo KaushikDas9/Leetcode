@@ -7,7 +7,7 @@ class Solution {
             if(answerKey.charAt(i)=='T') countT++;
             else countF++;
 
-            if(k<Math.min(countT,countF))
+            while(k<Math.min(countT,countF))
             {
                 if(answerKey.charAt(j++)=='T') countT--;
                 else countF--;               
