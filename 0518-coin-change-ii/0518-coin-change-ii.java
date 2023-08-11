@@ -27,7 +27,7 @@ class Solution {
         // for( int i=0 ; i<n ;i++ ) { Arrays.fill(dp[i] , -1 );}
         // return find ( n-1,coins , amount ,dp);
 
-        // memorization
+        // Tabulation
 
         for( int i=0 ; i<n ;i++ ) { dp[i][0]=1; }
         for(int j=0;j<amount+1;j++) { if(j % coins[0] == 0) dp[0][j] =1; else dp[0][j]=0; }
