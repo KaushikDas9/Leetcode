@@ -1,3 +1,4 @@
+//Memorization
 class Solution {
 
     public static int find( int n , int[] arr , int tar,int dp[][])
@@ -24,11 +25,24 @@ class Solution {
 
         int n = coins.length;
         int dp[][] = new int[n][amount+1];
-        // for( int i=0 ; i<n ;i++ ) { Arrays.fill(dp[i] , -1 );}
-        // return find ( n-1,coins , amount ,dp);
+        for( int i=0 ; i<n ;i++ ) { Arrays.fill(dp[i] , -1 );}
+        return find ( n-1,coins , amount ,dp);
 
-        // Tabulation
+      
+    }
+}
 
+
+
+
+
+
+//Tabulation 
+
+ public int change(int amount, int[] coins) {
+
+        int n = coins.length;
+        int dp[][] = new int[n][amount+1];
         for( int i=0 ; i<n ;i++ ) { dp[i][0]=1; }
         for(int j=0;j<amount+1;j++) { if(j % coins[0] == 0) dp[0][j] =1; else dp[0][j]=0; }
  
