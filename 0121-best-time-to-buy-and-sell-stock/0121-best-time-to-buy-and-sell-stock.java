@@ -1,14 +1,15 @@
 class Solution {
+
+     public static int find(int n,int min,int ans,int[] prices) {
+        if(n==prices.length) return ans ;
+
+        min = Math.min(prices[n], min);
+        ans=Math.max( (prices[n]- min ) , ans );
+        return find(n+1, min, ans, prices);
+
+    }
     public int maxProfit(int[] prices) {
         
-        int min= Integer.MAX_VALUE;
-        int ans=0;
-
-       for(int i=0;i<prices.length;i++) {
-
-           min=Math.min( min, prices[i] );
-           ans=Math.max( (prices[i]-min) , ans );
-       }
-       return ans;
+         return find(0,Integer.MAX_VALUE,0,prices);
     }
 }
