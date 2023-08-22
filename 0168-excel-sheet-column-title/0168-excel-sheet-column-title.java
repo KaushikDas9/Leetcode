@@ -6,10 +6,7 @@ class Solution {
         int temp = columnNumber ;
         while(temp>0) {
             int rem=temp%26;
-            if(rem==0){
-                 ans.append("Z"); temp-=1;
-                //  if(temp/26 == 1) break;
-            }
+            if(rem==0) {ans.append("Z"); temp-=1;}
             else ans.append((char)(rem+64));
             temp=temp/26;
         }
