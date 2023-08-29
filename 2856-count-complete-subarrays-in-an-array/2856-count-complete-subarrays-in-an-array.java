@@ -4,22 +4,21 @@ class Solution {
 
         for( int i=0;i<nums.length;i++) { de.add(nums[i]); }
 
-        int count=0;
-        HashSet<Integer> che = new HashSet<Integer>();
+        int count=0,j=0;
+        HashMap<Integer,Integer> che = new HashMap<>();
 
         for( int i=0;i<nums.length;i++ ) { 
 
-            // che.add(nums[i]);
-            for(int j=i;j<nums.length;j++ ) {
+            che.put(nums[i],che.getOrDefault(nums[i],0)+1 );
 
-                che.add(nums[j]);
-
-                if( che.size()==de.size() ) { 
-
-                    count+=(nums.length-j);break;
-                }
+            while(  che.size()==de.size()) {
+                  
+                    count+= nums.length-i ;   
+                    che.put(nums[j],che.get(nums[j])-1);
+                    che.remove(nums[j],0);
+                    j++;
             }
-            che.clear();
+            
         }
         return count;
     }
