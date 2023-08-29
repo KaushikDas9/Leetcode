@@ -16,7 +16,7 @@ class Solution {
 
                 if( che.size()==de.size() ) { 
 
-                    count++;
+                    count+=(nums.length-j);break;
                 }
             }
             che.clear();
