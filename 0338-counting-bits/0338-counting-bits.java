@@ -12,8 +12,7 @@ class Solution {
                 temp = temp/2;
 
             }
-            ans[n] = count;
-            n--;
+            ans[n--] = count;
         }
         return ans;
     }
