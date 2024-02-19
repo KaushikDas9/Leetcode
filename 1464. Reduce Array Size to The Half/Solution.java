@@ -9,7 +9,7 @@ class Solution {
             map.put( arr[i], map.getOrDefault( arr[i],0 )+1);
         } 
 
-        PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());
+        PriorityQueue<Integer> pq = new PriorityQueue<Integer>((x, y) -> y - x);
         for( Map.Entry<Integer,Integer> entry : map.entrySet() ) { 
 
             pq.add(entry.getValue());
