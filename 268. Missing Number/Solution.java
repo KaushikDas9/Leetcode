@@ -1,38 +1,12 @@
 class Solution {
-
-
-    boolean search( int arr[] , int value ) { 
-            int n= arr.length;
-            int left=0,right=n-1,mid= (n)/2 ;
-
-            while( left  <= right ) { 
-
-                if( value < arr[mid]) {
-
-                       right = mid-1;
-                       mid =  (left+right)/2;
-
-                }else if ( value > arr[mid]) {
-                    left=mid+1;
-                    mid=(left+right)/2;
-                }else {
-                    return true;
-                }
-            }
-
-        return false;
-    }
-
     public int missingNumber(int[] nums) {
-
-        Arrays.sort(nums);
         
- 
-        for ( int i=0;i<=nums.length;i++ ) { 
+        int n =nums.length;
+        int total = (n *(n+1))/2;
+        int sum =0;
 
-            if( !search(nums,i)) return i;
-        }
+        for(int i:nums) sum+=i;
 
-        return -1;
+        return total - sum; 
     }
 }
