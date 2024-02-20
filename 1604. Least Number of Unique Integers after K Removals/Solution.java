@@ -1,33 +1,23 @@
-import java.util.*;
-
 class Solution {
     public int findLeastNumOfUniqueInts(int[] arr, int k) {
-        HashMap<Integer, Integer> freqMap = new HashMap<>();
+        
+        HashMap< Integer ,Integer> map = new HashMap<>();
 
-        // Count the frequency of each element in the array
-        for (int num : arr) {
-            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+        for( int i:arr)  map.put( i , map.getOrDefault( i,0 )+1);
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        for( Map.Entry<Integer,Integer> i : map.entrySet() ) pq.add( i.getValue());
+          
+        while( k>0) { 
+
+            int temp= pq.peek();
+            k -= temp;
+            if( k >= 0 ) pq.poll();
+            
         }
+        return pq.size();
 
-        // Count the number of unique elements
-        int uniqueCount = freqMap.size();
-
-        // Store frequencies in a list
-        List<Integer> frequencies = new ArrayList<>(freqMap.values());
-
-        // Sort frequencies in ascending order
-        Collections.sort(frequencies);
-
-        // Iterate through frequencies and decrement k
-        for (int freq : frequencies) {
-            if (k >= freq) {
-                k -= freq;
-                uniqueCount--;
-            } else {
-                break;
-            }
-        }
-
-        return uniqueCount;
+           
     }
 }
