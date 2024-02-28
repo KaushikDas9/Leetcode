@@ -27,7 +27,7 @@ class Solution {
             value = root.val;
         }
         
-        int left1  = 1 + find( root.left , left+1 ) ;
+        int left1  =  find( root.left , left+1 ) ;
         int right = find( root.right, left+1 );
 
         
