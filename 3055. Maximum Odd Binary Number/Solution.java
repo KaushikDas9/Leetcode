@@ -13,29 +13,9 @@ class Solution {
 
         String ans = "";
 
-        if( arr[1] == 1 ) { 
-            for( int i=0;i<arr[0];i++ ) { 
-                ans += '0';
-            }
-            ans += '1';
-        }
-
-
-        if( arr[1] > 1 ) { 
-
-            for( int i=0;i<arr[1]-1;i++ ) { 
-                ans += '1';
-            }
-            for( int i=0;i<arr[0];i++ ) { 
-                ans += '0';
-            }
-            ans += '1';
-
-        }
-        if( arr[1] < 1) { 
-            return s;
-        }
-
+      for(int i=0;i<arr[1]-1;i++ ) ans += '1';
+      for(int i=0;i<arr[0];i++ ) ans += '0';
+        ans+='1';
         return ans;
         
     }
