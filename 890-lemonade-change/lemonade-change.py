@@ -14,11 +14,5 @@ class Solution:
                 else:
                     five -= 3
             if five < 0:
-                return "false"
-        return "true"
-
-s = Solution()
-with open('user.out', 'w') as f:
-    for case in map(loads, stdin):
-        f.write(f"{s.lemonadeChange(case)}\n")
-exit(0)
+                return False
+        return True
