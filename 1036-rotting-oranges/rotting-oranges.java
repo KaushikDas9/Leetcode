@@ -29,7 +29,7 @@ class Solution {
             if( (col-1)>=0 && grid[row][col-1]==1 && vis[row][col-1]==0 ) {
                 // q add , vis add ,time increase
                 vis[row][col-1]=2;
-                // grid[row][col-1]=2;
+                grid[row][col-1]=2;
                 ArrayList<Integer> l = new ArrayList<>();
                 l.add(row); l.add(col-1); l.add(time+1);
                 q.add(l);
@@ -38,7 +38,7 @@ class Solution {
             if( (col+1)<=m-1 && grid[row][col+1]==1 && vis[row][col+1]==0  ) {
                 // q add , vis add ,time increase
                 vis[row][col+1]=2;
-                // grid[row][col+1]=2;
+                grid[row][col+1]=2;
                 ArrayList<Integer> l = new ArrayList<>();
                 l.add(row); l.add(col+1); l.add(time+1);
                 q.add(l);
@@ -47,7 +47,7 @@ class Solution {
             if( (row-1)>=0 && grid[row-1][col]==1 && vis[row-1][col]==0 ) {
                 // q add , vis add ,time increase
                 vis[row-1][col]=2;
-                // grid[row-1][col]=2;
+                grid[row-1][col]=2;
                 ArrayList<Integer> l = new ArrayList<>();
                 l.add(row-1); l.add(col); l.add(time+1);
                 q.add(l);
@@ -56,7 +56,7 @@ class Solution {
             if( (row+1)<=n-1 && grid[row+1][col]==1 && vis[row+1][col]==0 ) {
                 // q add , vis add ,time increase
                 vis[row+1][col]=2;
-                // grid[row+1][col]=2;
+                grid[row+1][col]=2;
                 ArrayList<Integer> l = new ArrayList<>();
                 l.add(row+1); l.add(col); l.add(time+1);
                 q.add(l);
@@ -67,7 +67,7 @@ class Solution {
 
         for( int i=0;i<n;i++ ) {
             for( int j=0;j<m;j++ ) {
-                if( grid[i][j] == 1 && vis[i][j] != 2   ) {
+                if( grid[i][j] == 1    ) {
                     return -1;
                 }
             }
