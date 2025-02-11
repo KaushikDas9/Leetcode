@@ -6,7 +6,7 @@ class Solution {
         int m = grid[0].length;
         int ans =0;
         Queue<ArrayList<Integer>> q = new LinkedList<>();
-        int[][] vis = new int[n][m];
+       
 
         for( int i=0;i<n;i++ ) {
             for( int j=0;j<m;j++ ) {
@@ -26,36 +26,36 @@ class Solution {
             int time = temp.get(2);
             ans = time;
             // left
-            if( (col-1)>=0 && grid[row][col-1]==1 && vis[row][col-1]==0 ) {
+            if( (col-1)>=0 && grid[row][col-1]==1 ) {
                 // q add , vis add ,time increase
-                vis[row][col-1]=2;
+            
                 grid[row][col-1]=2;
                 ArrayList<Integer> l = new ArrayList<>();
                 l.add(row); l.add(col-1); l.add(time+1);
                 q.add(l);
             }
             // right 
-            if( (col+1)<=m-1 && grid[row][col+1]==1 && vis[row][col+1]==0  ) {
+            if( (col+1)<=m-1 && grid[row][col+1]==1   ) {
                 // q add , vis add ,time increase
-                vis[row][col+1]=2;
+              
                 grid[row][col+1]=2;
                 ArrayList<Integer> l = new ArrayList<>();
                 l.add(row); l.add(col+1); l.add(time+1);
                 q.add(l);
             }
             // up 
-            if( (row-1)>=0 && grid[row-1][col]==1 && vis[row-1][col]==0 ) {
+            if( (row-1)>=0 && grid[row-1][col]==1  ) {
                 // q add , vis add ,time increase
-                vis[row-1][col]=2;
+                
                 grid[row-1][col]=2;
                 ArrayList<Integer> l = new ArrayList<>();
                 l.add(row-1); l.add(col); l.add(time+1);
                 q.add(l);
             }
             // down 
-            if( (row+1)<=n-1 && grid[row+1][col]==1 && vis[row+1][col]==0 ) {
+            if( (row+1)<=n-1 && grid[row+1][col]==1 ) {
                 // q add , vis add ,time increase
-                vis[row+1][col]=2;
+                
                 grid[row+1][col]=2;
                 ArrayList<Integer> l = new ArrayList<>();
                 l.add(row+1); l.add(col); l.add(time+1);
