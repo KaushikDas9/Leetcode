@@ -1,12 +1,18 @@
 class Solution {
 
-   
+    
 
-    public int fib(int n) {
+    public static int find(int n,int[] arr) {
         if( n==0 ) return 0;
         if ( n==1 ) return 1;
+        if( arr[n] != 0 ) return arr[n];
 
-        return fib(n-1) + fib ( n-2);
+        return arr[n] = (find(n-1,arr) + find ( n-2,arr));
+    }
+
+    public int fib(int n) {
+        int[] arr = new int[n+1];
+        return find(n,arr);
 
     }
 }
