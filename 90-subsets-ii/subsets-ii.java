@@ -2,16 +2,17 @@ class Solution {
 
     public static void find( int n,int[] nums,List<Integer> s,List<List<Integer>> ans ) { 
         
-        if( n<0 ) {
-            if( !ans.contains(s) ) 
-                ans.add(new ArrayList<>(s));
-            return;
-        }
+            ans.add(new ArrayList<>(s));
+   
 
-        s.add(nums[n]);
-        find(n-1,nums,s,ans);
-        s.remove(s.size()-1);
-        find(n-1,nums,s,ans);
+        for( int i=n;i<nums.length;i++ ) {
+
+            if( i>n && nums[i]==nums[i-1] ) continue;
+
+            s.add(nums[i]);
+            find(i+1,nums,s,ans);
+            s.remove(s.size()-1);
+        }
 
     }
 
@@ -21,7 +22,7 @@ class Solution {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> store = new ArrayList<>();
         int n = nums.length;
-        find(n-1,nums,store,ans);
+        find(0,nums,store,ans);
         return ans;
     }
 }
