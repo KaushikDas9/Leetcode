@@ -22,11 +22,11 @@ class Solution {
                     set.remove(s.charAt(j));    
                     map.remove(s.charAt(j));
                 }
-                j++;
+                if(!set.isEmpty()) j++;
             }
 
-            ans.add(j-i);
-            i=j-1;
+            ans.add(j-i+1);
+            i=j;
 
         }
 
