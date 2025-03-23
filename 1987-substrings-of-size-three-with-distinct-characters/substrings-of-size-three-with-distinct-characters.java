@@ -1,6 +1,9 @@
 class Solution {
+
+    // Time = O(N)
+    // Space = O(N)
     public int countGoodSubstrings(String s) {
-        
+
         int n=s.length();
         if(n<=2) return 0;
         HashMap<Character,Integer> map = new HashMap<>();
