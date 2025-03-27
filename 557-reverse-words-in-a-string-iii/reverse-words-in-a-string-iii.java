@@ -16,6 +16,6 @@ class Solution {
         StringBuilder str = new StringBuilder(s.substring(j,s.length()));
         ans +=str.reverse();
 
-        return ans.substring(0,ans.length());
+        return ans;
     }
 }
