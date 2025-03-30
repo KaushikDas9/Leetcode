@@ -1,25 +1,17 @@
 class Solution {
+    public static int find(int n, int pre, int[] arr, Integer[][] dp) {
+        if (n == arr.length) return 0;
+        if (dp[n][pre+1] != null) return dp[n][pre+1];
 
-    public static int find( int n,int prev,int[] nums,Integer[][] dp ) { 
+        int l = 0, r = 0;
+        if ( pre == -1 || arr[n] > arr[pre]) l = 1 + find(n + 1, n, arr, dp);
+        r = 0 + find(n + 1, pre, arr, dp);
 
-        if( n==nums.length ) return 0;
-        if( dp[n][prev+1] != null ) return dp[n][prev+1];
-
-        int len=0;
-        len= 0+find( n+1,prev,nums,dp );
-        if( prev == -1 || nums[prev]<nums[n] ) {
-            len=Math.max( len,1+find( n+1,n,nums,dp ) );
-        }
-
-        return dp[n][prev+1]=len;
-
+        return dp[n][pre+1] = Math.max(l, r);
     }
+
     public int lengthOfLIS(int[] nums) {
-
-        List<Integer> s = new ArrayList<>();
-        int n=nums.length;
-        Integer[][] dp = new Integer[n+1][n+1];
-        return find( 0,-1,nums,dp );
-
+        Integer[][] dp = new Integer[nums.length][ nums.length+ 1];
+        return find(0,-1 , nums, dp);
     }
 }
