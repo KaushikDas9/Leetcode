@@ -1,17 +1,27 @@
-class Solution {
-    public static int find(int n, int pre, int[] arr, Integer[][] dp) {
-        if (n == arr.length) return 0;
-        if (dp[n][pre+1] != null) return dp[n][pre+1];
+class Solution { 
 
-        int l = 0, r = 0;
-        if ( pre == -1 || arr[n] > arr[pre]) l = 1 + find(n + 1, n, arr, dp);
-        r = 0 + find(n + 1, pre, arr, dp);
+    public static int find( int i , int prev , int[] arr , Integer[][] dp ) { 
+        
+        if ( i == arr.length ) return 0;
+        if( dp[i][prev+1] != null ) return dp[i][prev+1];
 
-        return dp[n][pre+1] = Math.max(l, r);
+        int take = 0 , ntake = 0 ;
+        
+        if( prev == -1 || arr[prev] < arr[i] ) { 
+            take= 1 + find( i + 1 , i , arr , dp );
+        }
+
+        ntake = 0 + find( i + 1 , prev , arr , dp );
+        
+        return dp[i][prev+1] = Math.max( take , ntake );
+
     }
 
     public int lengthOfLIS(int[] nums) {
-        Integer[][] dp = new Integer[nums.length][ nums.length+ 1];
-        return find(0,-1 , nums, dp);
+
+        int n = nums.length;
+
+        Integer[][] dp = new Integer[n][n+1];
+        return find( 0,-1,nums,dp );
     }
 }
