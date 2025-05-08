@@ -20,13 +20,18 @@ class Solution {
         int[] dp = new int[n+1]; 
         // return find( n , dp );
 
-        dp[0] = 1 ; dp[1] = 1;
+        // dp[0] = 1 ; dp[1] = 1;
+        int prev = 1, curr = 1;
 
         for ( int i = 2 ; i <= n ; i++ ) {
-            dp[i] = dp[ i - 1 ] + dp[ i - 2 ] ;
+            dp[i] = curr + prev ;
+
+            int t = curr ; 
+            prev = curr ;
+            curr = dp[i];
         }
 
-        return dp[n];
+        return curr;
     }
 }
 
