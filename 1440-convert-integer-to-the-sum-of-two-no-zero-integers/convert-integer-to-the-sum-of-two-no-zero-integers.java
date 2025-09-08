@@ -1,17 +1,17 @@
 class Solution {
     public int[] getNoZeroIntegers(int n) {
         int[] ans = new int[2];
-        int t = n ;
+        int temp = n ;
 
-        while(n > 0) {
-            n--;
-            if( n > 10 && find(n) && find( t - n ) ) {
-                ans[0] = n;
-                ans[1] = t - n;
+        while(temp > 0) {
+            temp--;
+            if( temp > 10 && find(temp) && find( n - temp ) ) {
+                ans[0] = temp;
+                ans[1] = n - temp;
                 return ans;
-            } else if( n < 10 && n != 0 ) {
-                ans[0] = n;
-                ans[1] = t - n;
+            } else if( temp < 10 && temp != 0 ) {
+                ans[0] = temp;
+                ans[1] = n - temp;
                 return ans;
             }
         }
